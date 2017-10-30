@@ -1,5 +1,11 @@
 import Data.List
 
+
+main :: IO ()
+main = do
+    print $ prime_factors 8612
+
+
 prime_factors :: Integer -> String  
 prime_factors n = prime_factors_string $ group $ prime_factors_nums n 2
 
@@ -17,3 +23,4 @@ prime_factors_nums n m
     | n < m = []
     | n >= m && ((mod n m) == 0) = [m] ++ (prime_factors_nums (div n m) m)
     | n >= m = prime_factors_nums n (m + 1)
+    | otherwise = []
